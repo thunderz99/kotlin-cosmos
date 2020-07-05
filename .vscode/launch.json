@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "kotlin",
+            "request": "attach",
+            "name": "Kotlin Attach",
+            "projectRoot": "${workspaceFolder}",
+            "hostName": "localhost",
+            "port": 5005,
+            "timeout": 30000
+        },
+        {
+            "type": "kotlin",
+            "request": "launch",
+            "name": "Kotlin Launch",
+            "projectRoot": "${workspaceFolder}",
+            "mainClass": "net.thunderz99.rapid.AppKt",
+            "preLaunchTask": "build",
+        }
+    ]
+}
