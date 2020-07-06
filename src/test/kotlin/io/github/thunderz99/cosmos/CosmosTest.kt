@@ -26,7 +26,7 @@ class CosmosTest {
 
     @BeforeAll
     fun beforeAll() {
-        db.createIfNotExist(db = "CosmosDB", coll = "Users")
+        db.createIfNotExist(coll = "Users")
     }
     @Test
     fun `Create and Read should work`() {

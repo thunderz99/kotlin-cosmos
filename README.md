@@ -40,7 +40,7 @@ fun main() {
     val users = db.find("Collection1", filter {
         "id" > "id010",
         "lastName" to "Banks" 
-    })
+    }).toList<User>()
 }
 ```
 
@@ -68,5 +68,5 @@ fun main() {
 
 ```
 
-## Special thanks
-TODO
+
+

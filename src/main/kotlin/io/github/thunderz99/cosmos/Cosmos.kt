@@ -224,12 +224,12 @@ class CosmosDatabase(private val client: DocumentClient, private val database: S
      *
      */
     fun find(
-            collection: String,
-            filter: JSONObject = JSONObject(),
-            sort: JSONObject = JSONObject(""" {"_ts": "DESC"} """),
-            offset: Int = 0,
-            limit: Int = 100,
-            partition: String = collection
+        collection: String,
+        filter: JSONObject = JSONObject(),
+        sort: JSONObject = JSONObject(""" {"_ts": "DESC"} """),
+        offset: Int = 0,
+        limit: Int = 100,
+        partition: String = collection
     ): CosmosDocumentList {
 
         checkCollection(collection)
@@ -258,9 +258,9 @@ class CosmosDatabase(private val client: DocumentClient, private val database: S
      * return count of documents
      */
     fun count(
-            collection: String,
-            filter: JSONObject = JSONObject(),
-            partition: String = collection
+        collection: String,
+        filter: JSONObject = JSONObject(),
+        partition: String = collection
     ): Int {
 
         checkCollection(collection)
@@ -294,7 +294,7 @@ class CosmosDatabase(private val client: DocumentClient, private val database: S
     /**
      * Create the db and coll if not exist. Coll creation will be skipped is empty.
      */
-    fun createIfNotExist(db: String, coll: String = ""): CosmosDatabase {
+    fun createIfNotExist(db: String = this.database, coll: String = ""): CosmosDatabase {
 
         if (coll.isBlank()) {
             createDatabaseIfNotExist(client, db)
@@ -343,7 +343,6 @@ data class CosmosDocumentList(val jsonObjs: List<JSONObject>) {
         return mapper.writeValueAsString(jsonObjs)
     }
 }
-
 
 internal fun getDatabaseLink(db: String) = "/dbs/%s".format(db)
 
@@ -539,4 +538,3 @@ internal fun getDefaultIndexingPolicy(): IndexingPolicy {
 }
 
 internal fun getDefaultPartitionKey(): String = "_partition"
-

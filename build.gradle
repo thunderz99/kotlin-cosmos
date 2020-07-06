@@ -12,7 +12,12 @@ plugins {
     id("java-library")
 
     id 'com.adarshr.test-logger' version '2.0.0'
+
+    id "maven-publish"
 }
+
+group = "io.github.thunderz99.cosmos"
+version = "0.0.1"
 
 repositories {
     // Use jcenter for resolving dependencies.
