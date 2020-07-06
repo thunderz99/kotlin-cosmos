@@ -7,6 +7,7 @@ import io.github.cdimascio.dotenv.dotenv
 import mu.KotlinLogging
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.fail
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 
@@ -21,8 +22,12 @@ data class User(val name: String, val id: String, val fullName: FullName? = Full
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class CosmosTest {
     private val db =
-        CosmosAccount(dotenv.get("COSMOSDB_CONNECTION_STRING") ?: "").getDatabase("CosmosDB")
+        Cosmos(dotenv.get("COSMOSDB_CONNECTION_STRING") ?: "").getDatabase("CosmosDB")
 
+    @BeforeAll
+    fun beforeAll() {
+        db.createIfNotExist(db = "CosmosDB", coll = "Users")
+    }
     @Test
     fun `Create and Read should work`() {
 

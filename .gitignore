@@ -66,3 +66,5 @@ kotlin-ultimate/
 libraries/tools/kotlin-test-js-runner/lib/
 local.properties
 ktDebugJsonLog.txt
+.idea/misc.xml
+.idea/vcs.xml

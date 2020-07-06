@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "kotlin",
+            "request": "launch",
+            "name": "Kotlin Test",
+            "projectRoot": "${workspaceFolder}",
+            "mainClass": "io.github.thunderz99.cosmos.TestAllKt",
+            "preLaunchTask": "build",
+        },
+        {
+            "type": "kotlin",
             "request": "attach",
             "name": "Kotlin Attach",
             "projectRoot": "${workspaceFolder}",
@@ -13,13 +21,5 @@
             "port": 5005,
             "timeout": 30000
         },
-        {
-            "type": "kotlin",
-            "request": "launch",
-            "name": "Kotlin Launch",
-            "projectRoot": "${workspaceFolder}",
-            "mainClass": "net.thunderz99.rapid.AppKt",
-            "preLaunchTask": "build",
-        }
     ]
 }
